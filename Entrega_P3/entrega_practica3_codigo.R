@@ -1,14 +1,16 @@
 
 # ENTREGA PRACTICA 3 ------------------------------------------------------
 
-setwd("~/PracticasLabo/Entrega_P3") #Setea tu propio directorio de trabajo 
-                                     #donde tengas los archivos con la info
+setwd("~/PracticasLabo/Entrega_P3/Info_estaciones") #Setea tu propio directorio 
+                                                     #de trabajo donde tengas 
+                                                      #los archivos con la info
 
 ### 1 ###
 
 rm(list=ls())
 
-#Leo los archivos
+#Leo los archivos (Los archivos para descargar estan en la carpeta 
+#"Info_estaciones" del directorio Entrega_P3 de Github)
 datos.azul = read.table("AZUL.txt")
 datos.aeroparque = read.table("AEROPARQUE.txt")
 datos.catamarca = read.table("CATAMARCA.txt")
