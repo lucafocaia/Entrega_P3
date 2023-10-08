@@ -1,10 +1,12 @@
 
 # ENTREGA PRACTICA 3 ------------------------------------------------------
 
-rm(list=ls())
-setwd("~/PracticasLabo")
+setwd("~/PracticasLabo/Entrega_P3") #Setea tu propio directorio de trabajo 
+                                     #donde tengas los archivos con la info
 
 ### 1 ###
+
+rm(list=ls())
 
 #Leo los archivos
 datos.azul = read.table("AZUL.txt")
@@ -80,10 +82,12 @@ estaciones[6,] = lista.mendoza
 ### 2 ###
 
 #I
-resumen = function(x) {
-  informacion = array(list(),dim=c(nrow(x),16)) #Arme un array
+#Funcion que da el resumen de varias series de datos
+resumen = function(x) { #Arme un array, en vez de un data.frame, me parecio 
+                         #mas comodo
+  informacion = array(list(),dim=c(nrow(x),16)) 
   colnames(informacion) = c("Estacion","Cantidad de datos","Temperatura media",
-                            "Temperatura de roci media","Presion media",
+                            "Temperatura de rocio media","Presion media",
                             "Desvio de la temperatura", "Desvio de la 
                             temperatura de rocio","Desvio de la presion",
                             "Temperatura maxima","Temperatura de rocio maxima",
@@ -115,8 +119,9 @@ resumen = function(x) {
   return(informacion)
 }
 
-resumen = resumen(estaciones) #Salta un Warning pero es porque Chilecito tiene
-                              #todos datos faltantes en la presion
+resumen.estaciones = resumen(estaciones) #Salta un Warning porque Chilecito 
+                                          #tiene todos datos faltantes en la 
+                                           #presion
 
 
 #II
@@ -145,5 +150,11 @@ localizacion_de_estaciones(-70,-20,-70,-20)
 localizacion_de_estaciones(30,60,30,60)
 
 
+#III
+guardar.archivo = function(x,nombre_archivo) {
+  save(x, file = nombre_archivo)
+}
+
+guardar.archivo(estaciones,"Datos_Estaciones.Rdata")
 
 
